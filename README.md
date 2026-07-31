@@ -77,11 +77,19 @@ seed = int(hashlib.sha256(f"{pose_id}|{prompt_id}|{scale}".encode()).hexdigest()
 
 참조는 백발 **남성** 사진인데 수채화 결과는 **여성 인물**이다. 그런데도 양손 허리 자세는 유지됐다.
 
-### 포즈 추종 강도만 바꿈
+### 포즈 추종 강도만 바꿈 (pose_01 + astronaut 고정)
 
-| 0.5 | 1.0 | 1.5 |
-|---|---|---|
-| ![](samples/compare_scale_0.5.png) | ![](samples/compare_scale_1.0.png) | ![](samples/compare_scale_1.5.png) |
+**0.5** — 팔이 몸통에 가까워지고 팔꿈치 벌어짐이 약해졌다
+
+![control scale 0.5](samples/compare_scale_0.5.png)
+
+**1.0** — 스켈레톤과 가장 정확히 일치
+
+![control scale 1.0](samples/compare_scale_1.0.png)
+
+**1.5** — 자세는 정확하지만 인물이 뻣뻣해지고 배경이 원형 구조물로 단순화됨
+
+![control scale 1.5](samples/compare_scale_1.5.png)
 
 **관찰**
 
