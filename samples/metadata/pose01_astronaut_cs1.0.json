@@ -1,0 +1,24 @@
+{
+  "name": "pose01_astronaut_cs1.0",
+  "pose": "pose01",
+  "prompt_id": "astronaut_cs1.0",
+  "prompt": "an astronaut in a white spacesuit, on the surface of mars, cinematic lighting",
+  "negative_prompt": "lowres, bad anatomy, extra limbs, deformed hands, watermark, text, blurry",
+  "seed": 914889995,
+  "seed_tag": "pose01|astronaut_cs1.0|1.0",
+  "seed_rule": "int(sha256(seed_tag)[:16], 16) % 2**32",
+  "base_model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "controlnet": "lllyasviel/control_v11p_sd15_openpose",
+  "steps": 20,
+  "guidance": 7.5,
+  "control_scale": 1.0,
+  "size": [
+    512,
+    512
+  ],
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "diffusers": "0.39.0",
+    "transformers": "5.14.1"
+  }
+}
