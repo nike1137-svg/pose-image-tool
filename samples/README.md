@@ -36,6 +36,24 @@
 | `compare_scale_1.0.png` | 1.0 |
 | `compare_scale_1.5.png` | 1.5 |
 
+## 재실험 — 대조군과 시드 고정
+
+처음 실험의 결론 네 개를 뒤집은 실험들이다. 자세한 내용은 [상위 README의 재실험 절](../README.md#재실험--대조군과-시드-고정) 참고.
+
+| 파일 | 내용 |
+|---|---|
+| `ablation_pose01.png` / `ablation_pose02.png` | 대조군 몽타주 — `참조 \| 스켈레톤 \| 조건 끔 \| 조건 켬` |
+| `ablation_pose01_scale0.0.png` 등 4장 | 위 몽타주의 개별 원본 |
+| `seed_variation.png` | 시드만 바꾼 4장 몽타주 (조건 고정) |
+| `seedtest_11/22/33/44.png` | 개별 원본 |
+| `scale_fixedseed.png` | 시드 고정, 강도만 0.0~1.5 로 바꾼 4장 몽타주 |
+| `scalefix_0.0/0.5/1.0/1.5.png` | 개별 원본 |
+| `hand_condition.png` | 손 조건 몽타주 — `손 포함 스켈레톤 \| 몸통만 \| 손 조건 켬` |
+| `skeleton_02_with_hands.png` | 손 관절이 포함된 스켈레톤 |
+| `hand_body_only.png` / `hand_included.png` | 개별 원본 |
+
+> 이 실험들의 이미지에는 json 이 없다. 조건(시드·강도·프롬프트)이 노트 13번 절 코드에 그대로 적혀 있어 그것으로 재현된다.
+
 ## metadata/
 
 이미지 8장 각각의 생성 조건이다. 프롬프트, 시드, 시드 계산 규칙, 모델 이름, 스텝, guidance, control scale, 해상도, 라이브러리 버전이 들어 있다. 이 json 하나만 있으면 같은 이미지를 다시 만들 수 있다.
