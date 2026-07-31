@@ -80,6 +80,12 @@ seed = int(hashlib.sha256(f"{pose_id}|{prompt_id}|{scale}".encode()).hexdigest()
 
 참조는 백발 **남성** 사진인데 수채화 결과는 **여성 인물**이다. 그런데도 양손 허리 자세는 유지됐다.
 
+### 같은 프롬프트, 포즈만 바꿈
+
+![pose02 + knight](samples/compare_02_knight.png)
+
+`pose_02`(양팔 만세) + knight. 팔은 올라갔지만 갑옷 실루엣에 흡수되어 형태가 뚜렷하지 않다. 같은 knight 프롬프트를 `pose_01` 에 넣은 위 그림과 비교하면 내용은 유지되고 자세만 바뀐 것을 볼 수 있다.
+
 ### 포즈 추종 강도만 바꿈 (pose_01 + astronaut 고정)
 
 **0.5** — 팔이 몸통에 가까워지고 팔꿈치 벌어짐이 약해졌다
@@ -107,6 +113,8 @@ seed = int(hashlib.sha256(f"{pose_id}|{prompt_id}|{scale}".encode()).hexdigest()
 | pose01 astronaut, scale 0.5 | 14 | 15.3px | 11.7% | 86% | 근사 |
 | pose01 astronaut, scale 1.0 | 11 | 21.8px | 12.9% | 82% | 근사 |
 | pose01 astronaut, scale 1.5 | 12 | 20.8px | 12.9% | **58%** | 근사 |
+
+측정 대상은 생성 이미지 8장 중 7장이다. `pose02 + knight` 는 갑옷과 배경이 뒤섞여 참조 대조가 무의미해 제외했다.
 
 **자세오차** = 목을 원점, 목~엉덩이중심 거리를 1로 맞춰 화면 내 위치·크기 차이를 제거한 뒤 남은 관절 거리(몸통 길이 대비 %). **PCK@0.2** = 몸통 길이의 20% 안에 들어온 관절 비율. 판정은 자세오차 기준 10% 미만 일치 / 10–20% 근사 / 20% 이상 어긋남.
 

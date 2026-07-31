@@ -22,6 +22,12 @@
 | `output_01_knight.png` / `compare_01_knight.png` | 중세 기사 |
 | `output_01_watercolor.png` / `compare_01_watercolor.png` | 수채화 |
 
+## 같은 프롬프트에 포즈만 바꾼 것
+
+| 파일 | 내용 |
+|---|---|
+| `output_02_knight.png` / `compare_02_knight.png` | pose_02(양팔 만세) + 중세 기사 |
+
 ## 포즈 추종 강도만 바꾼 것 (pose_01 + astronaut 고정)
 
 | 파일 | control scale |
