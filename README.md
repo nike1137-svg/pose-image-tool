@@ -1,5 +1,7 @@
 # 원하는 포즈로 이미지 만드는 도구
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nike1137-svg/pose-image-tool/blob/main/pose_tool.ipynb)
+
 ## 도구 설명
 
 참조 사진에서 사람의 **자세(관절)만** 뽑아내고, 그 자세를 유지한 채 완전히 다른 인물·장면의 이미지를 만드는 Colab 도구입니다. 프롬프트로는 지정하기 어려운 "이 자세로"를 사진 한 장으로 지정합니다.
@@ -26,7 +28,7 @@
 
 ## 사용법
 
-1. **Colab에서 노트 열기** — [`pose_tool.ipynb`](pose_tool.ipynb) 를 클릭한 뒤 상단의 `Open in Colab` 배지를 누르거나, Colab에서 **파일 → 노트 업로드**로 이 파일을 올립니다. 런타임은 **T4 GPU**로 설정합니다.
+1. **Colab에서 노트 열기** — 위의 **Open In Colab** 배지를 누르면 바로 열립니다. 또는 [`pose_tool.ipynb`](pose_tool.ipynb) 를 내려받아 Colab에서 **파일 → 노트 업로드**로 올려도 됩니다. 런타임은 **T4 GPU**로 설정합니다.
 2. **위에서 아래로 순서대로 실행** — 셀마다 첫 줄 주석에 그 셀이 하는 일이 적혀 있습니다.
    - `0–1` GPU 확인, 라이브러리 설치
    - `2–3` 조건 고정, 모델 로드 (한 번만)
@@ -55,7 +57,7 @@ seed = int(hashlib.sha256(f"{pose_id}|{prompt_id}|{scale}".encode()).hexdigest()
 
 파이썬 내장 `hash()` 는 프로세스마다 값이 달라져 재현이 깨지므로 쓰지 않았습니다. 이 규칙 덕분에 런타임을 새로 켜도, 다른 사람이 이 노트를 돌려도 같은 조건은 같은 시드를 냅니다. 노트 10번 셀이 저장된 json의 시드를 규칙으로 다시 계산해 일치하는지 검증합니다.
 
-같은 이미지를 다시 만들려면 `samples/` 의 json에 적힌 `pose`, `prompt`, `control_scale` 을 그대로 넣고 노트를 실행하면 됩니다.
+같은 이미지를 다시 만들려면 **참조 사진과 조건이 둘 다** 필요합니다. json 하나만으로는 부족한데, 참조 사진이 없으면 스켈레톤이 달라지기 때문입니다. 그래서 노트가 실제로 먹인 512×512 입력을 [`samples/pose_01.png`](samples/pose_01.png), [`samples/pose_02.png`](samples/pose_02.png) 로 그대로 올려두었습니다. 이 두 장을 4번 셀에 업로드하고 `samples/metadata/` 의 json에 적힌 `prompt`, `prompt_id`, `control_scale` 을 넣으면 같은 이미지가 나옵니다.
 
 ## 테스트 결과
 
